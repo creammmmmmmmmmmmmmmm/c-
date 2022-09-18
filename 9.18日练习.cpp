@@ -41,15 +41,113 @@
 
 //只打印1~10
 
+//int main()
+//{
+//	int i = 0;
+//	for (i = 1; i < 11; i++)
+//	{
+//		printf("%d", i);
+//	}
+//	return 0;
+//}
+//输入一个N，后面接N个数求和，要能连续计算而不退出程序
+//int main()
+//{
+//	int N,i,a,sum=0;
+//	scanf("%d", &N);
+//	for (i = 1; i <= N; i++)
+//	{
+//		scanf("%d", &a);
+//		sum += a;
+//		if (i == N)
+//		{
+//			printf("%d", sum);
+//			i = 0;
+//			sum = 0;
+//			scanf("%d", &N);
+//		}
+//	}
+//	return 0;
+//}
+
+//输入N，求下面N行两个数的和
+//int main()
+//{
+//	int N,i=1,a,b,c;
+//	scanf("%d", &N);
+//	while(i<=N)
+//	{
+//		scanf("%d%d", &a,&b);
+//		c = a + b;
+//		printf("%d\n",c);
+//		i++;
+//	}
+//	return 0;
+//}
+
+//n的阶乘
+//int main()
+//{
+//	int N,i=1;
+//	long e = 1;
+//	scanf("%d", &N);
+//	do
+//	{
+//		e *= i;
+//		i++;
+//	}
+//	while (i <= N);
+//	printf("%d", e);
+//	return 0;
+//}
+//
+
+//1!+2!+....+n!
+//int main()
+//{
+//	int N=0, i,e,f=1,sum=0;
+//	scanf("%d",&N);
+//	for (i = 1;i <= N; i++)
+//	{
+//		for (e = 1; e <=i; e++)
+//		{
+//			f *= e;
+//		}
+//		sum += f;
+//	}
+//	printf("%d", sum);
+//	return 0;
+//}
+
+
 int main()
 {
-	int i = 0;
-	for (i = 1; i < 11; i++)
+	int N,M,e;
+	int arr[9999];
+	scanf("%d", &N);
+	for (int i = 0; i < N; i++)
 	{
-		printf("%d", i);
+		int sum = 0;
+		scanf("%d", &M);
+		for (int a = 0; a < M; a++)
+		{
+			scanf("%d", &e);
+			sum += e;
+		}
+		arr[i] = sum;
 	}
+	for (int i = 0; i < N - 1;i++)
+	{
+		printf("%d\n\n", arr[i]);
+	}
+	printf("%d\n", arr[N - 1]);
 	return 0;
 }
+
+
+
+
+
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单

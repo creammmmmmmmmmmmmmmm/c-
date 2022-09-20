@@ -84,6 +84,122 @@
 //	return 0;
 //}
 
+//复习
+//int main()
+//{
+//	char arr1[] = "welcome to bit";
+//	char arr2[] = "##############";
+//	int left = 0;
+//	int right = strlen(arr1) - 1;
+//	while (left < right)
+//	{
+//		arr2[left] = arr1[left];
+//		arr2[right] = arr1[right];
+//		left++;
+//		right--;
+//		printf("%s", arr2);
+//		Sleep(500);
+//		system("cls");
+//	}
+//	printf("%s", arr1);
+//	return 0;
+//}
+
+
+//复习
+
+//int main()
+//{
+//	int i;
+//	char password[10];
+//	for (i = 1; i <= 3; i++)
+//	{
+//		scanf("%s", &password);
+//		if (strcmp(password,"123456")==0)
+//		{
+//			printf("密码正确");
+//			break;
+//		}
+//		else
+//		{
+//			printf("密码错误\n");
+//		}
+//	}
+//	if (i > 3)
+//	{
+//		printf("别耍我");
+//	}
+//	return 0;
+//}
+
+//复习18号的，输入一个N，计算下面N行整数的和，每行开头代表这行有几个待计算整数，本身不参与计算；
+//int main()
+//{
+//	int i = 0;
+//	int n, m, e;
+//	int arr[9999];
+//	scanf("%d", &n);
+//	for (i = 0; i < n; i++)
+//	{
+//		int sum = 0;
+//		scanf("%d", &m);
+//		for (int a = 1; a <= m; a++)
+//		{
+//			scanf("%d", &e);
+//			sum += e;
+//		}
+//		arr[i] = sum;
+//	}
+//	for (int b = 0; b <=i-1; b++)
+//	{
+//		printf("%d\n", arr[b]);
+//	}
+//	return 0;
+//}
+
+
+//复习平均分
+//int main()
+//{
+//	int n, a, b, c=0, d=0;
+//	double aver1, aver2, e=0, f=0;
+//	scanf("%d", &n);
+//	for (int i = 1; i <= n; i++)
+//	{
+//		scanf("%d%d", &a, &b);
+//		if (a == 0)
+//		{
+//			c++;
+//			e += b;
+//		}
+//		else if (a == 1)
+//		{
+//			d++;
+//			f += b;
+//		}
+//	}
+//	if (c == 0)
+//	{
+//		aver1 = f / d;
+//		printf("%.1f X", aver1);
+//	}
+//	else if (d == 0)
+//	{
+//		aver2 = e / c;
+//		printf("X %.1f", aver2);
+//	}
+//	else
+//	{
+//		aver1 = f / b;
+//		aver2 = e / c;
+//		printf("%.1f %.1f", aver1, aver2);
+//	}
+//	return 0;
+//}
+
+
+
+
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单

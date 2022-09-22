@@ -35,13 +35,52 @@
 
 
 
+//int main()
+//{
+//	double x;
+//	scanf("%lf", &x);
+//	printf("%.2lf", x);
+//
+//}
+//求最大公约数，辗转相除法
+//int main()
+//{
+//	int m, n,r;
+//	scanf("%d %d", &m, &n);
+//	while (m % n)
+//	{
+//		r = m % n;
+//		m = n;
+//		n = r;
+//	}
+//	printf("%d", n);
+//	return 0;
+//}
+//打印素数,这是优化后的，sqrt是开平方
 int main()
 {
-	double x;
-	scanf("%lf", &x);
-	printf("%.2lf", x);
-
+	int a;
+	int i = 2;
+	scanf("%d", &a);
+	while(i<=sqrt(a))
+	{
+		if (a % i!=0)
+			i++;
+		else
+			break;
+	}
+	if (i >sqrt(a))
+		printf("yes");
+	else
+		printf("no");
+	return 0;
 }
+
+
+
+
+
+// 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
 

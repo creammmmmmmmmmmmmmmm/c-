@@ -8,31 +8,46 @@
 #include "move.h"
 #include"misc.h"
 
-void executeGet(const char *noun)//检测是否合法并且搬运
+void executeGet(const char* noun)//检测是否合法并且搬运
 {
 	OBJECT* obj = getVisible("what you want to get", noun);
-	if (obj == NULL)
+	switch (getDistance(player, obj))
 	{
-		//已被处理
-	}
-	else if (obj == player)
-	{
+	case distSelf:
 		printf("You should not be doing that to yourself.\n");
-	}
-	else if (obj->location == player)
-	{
+		break;
+	case distHeld:
 		printf("You already have %s.\n", obj->description);
-	}
-	else if (obj->location == guard)
-	{
-		printf("You should ask %s nicely.\n", obj->location->description);
-	}
-	else
-	{
-		obj->location = player;
-		printf("You get %s\n", obj->description);
-		//moveObject(obj, player);
-		//用于将对象传输到其新位置
+		break;
+	case distOverthere:
+		printf("Too far away, move closer please.\n");
+		break;
+	case distLocation:
+		printf("You can't get the location.\n");
+		break;
+	case distUnknownObject:
+		// 已被判断是否可视函数处理
+		break;
+	default:
+		if (obj->location == guard)
+		{
+			printf("You should ask %s nicely.\n", obj->location->description);
+		}
+		else if (obj == guard)
+		{
+			printf("You can't get the NPC!\n");
+		}
+		else if (obj->destination != NULL)
+		{
+			printf("You can't get the road!\n");
+		}
+		else
+		{
+			obj->location = player;
+			printf("You get %s\n", obj->description);
+			//moveObject(obj, player);
+			//用于将对象传输到其新位置
+		}
 	}
 }
 void executeDrop(const char* noun)

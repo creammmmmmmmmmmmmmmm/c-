@@ -22,21 +22,31 @@ void executeLook(const char *noun)
 	}
 }
 
-void executeGo(const char *noun)
+void executeGo(const char* noun)
 {
-	OBJECT *obj= getVisible("where you want to go", noun);
-	if(obj==NULL)
+	OBJECT* obj = getVisible("where you want to go", noun);
+	switch (getDistance(player, obj))
 	{
-	 //已被getvisisible处理
-	}
-	else if (obj->location == NULL && obj->location != player->location)
-	{
+	case distOverthere:
 		printf("OK.\n");
 		player->location = obj;
 		executeLook("around");
-	}
-	else
-	{
-		printf("You can't get much closer than this.\n");
+		break;
+	case distNotHere:
+		printf("You don't see any %s here.\n", noun);
+		break;
+	case distUnknownObject://已被getVisible处理
+		break;
+	default:
+		if (obj->destination != NULL)
+		{
+			printf("OK.\n");
+			player->location = obj->destination;//若玩家走向一条通道，就让他抵达目的地
+			executeLook("around");
+		}
+		else
+		{
+			printf("You can't get much closer than this.\n");
+		}
 	}
 }

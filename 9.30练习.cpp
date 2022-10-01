@@ -58,22 +58,103 @@
 //	return 0;
 //}
 
-//求斐波那契数列
+//求斐波那契数列(这玩意效率极低)
 
-int fb(int a)
+//int fb(int a)
+//{
+//	if (a > 2)
+//	{
+//		return fb(a - 1) + fb(a - 2);
+//	}
+//	else
+//		return 1;
+//}
+//int main()
+//{
+//	int a;
+//	scanf("%d", &a);
+//	printf("%d", fb(a));
+//	return 0;
+//}
+
+//来个高效的
+
+//int fb(int n)
+//{
+//	if (n > 2)
+//	{
+//		int a, b, c;
+//		a = 1, b = 1;
+//		for (int i = 3; i <= n; i++)
+//			c = a + b, a = b, b = c;
+//		return c;
+//	}
+//	else
+//		return 0;
+//}
+//
+//int main()
+//{
+//	int a;
+//	scanf("%d", &a);
+//	printf("%d", fb(a));
+//	return 0;
+//}
+
+//汉诺塔问题
+//int main()
+//{
+//	void turn(int n, char a, char b, char c);//声明hanoi函数
+//	int m;
+//	printf("请输入总数:");
+//	scanf("%d", &m);
+//	printf("移动步骤为:\n");
+//	turn(m, 'A', 'B', 'C');
+//	return 0;
+//}
+//
+//void turn(int n, char a, char b, char c)
+//{
+//	void move(char a, char c);
+//	if (n == 1)
+//		move(a, c);
+//	else
+//	{
+//		turn(n - 1, a, c, b);
+//		move(a, c);
+//		turn(n - 1, b, a, c);
+//	}
+//}
+//
+//void move(char x, char y)
+//{
+//	printf("从%c移到%c\n", x, y);
+//}
+
+//青蛙跳台阶问题，可以化为斐波那契数列问题，高效方法同上
+#include<math.h>
+int jump(int n)
 {
-	if (a > 2)
+	if ( n == 1 )
 	{
-		return fb(a - 1) + fb(a - 2);
-	}
-	else
 		return 1;
+	}
+	else if (n == 2)
+	{
+		return 2;
+	}
+	else if (n > 2)
+	{
+		int i = jump(n - 1) + jump(n - 2);
+		return i;
+	}
 }
+
 int main()
 {
-	int a;
-	scanf("%d", &a);
-	printf("%d", fb(a));
+	int n;
+	scanf("%d", &n);
+	printf("%d", jump(n));
 	return 0;
 }
 
